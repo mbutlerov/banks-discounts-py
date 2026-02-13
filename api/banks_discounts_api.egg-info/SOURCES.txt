@@ -1,0 +1,11 @@
+pyproject.toml
+app/main.py
+app/api/v1/routes/__init__.py
+app/api/v1/routes/health.py
+app/core/__init__.py
+app/core/config.py
+banks_discounts_api.egg-info/PKG-INFO
+banks_discounts_api.egg-info/SOURCES.txt
+banks_discounts_api.egg-info/dependency_links.txt
+banks_discounts_api.egg-info/requires.txt
+banks_discounts_api.egg-info/top_level.txt

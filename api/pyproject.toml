@@ -1,0 +1,17 @@
+[project]
+name = "banks-discounts-api"
+version = "0.1.0"
+description = "A FastAPI project for managing bank discounts"
+requires-python = ">=3.12"
+
+dependencies = [
+    "fastapi>=0.110",
+    "uvicorn>=0.27",
+    "pydantic>=2.12",
+    "pydantic-settings>=2.12"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["app*"]
+exclude = ["environments*", "enviroments*", "tests*"]
