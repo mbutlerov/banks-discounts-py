@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: banks_api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./api:/app:/app/app
+    environment:
+      ENV: dev
+    restart: unless-stopped
