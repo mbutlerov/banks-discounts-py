@@ -1,0 +1,17 @@
+# compose.prod.yml (solo prod)
+services:
+  db:
+    env_file:
+      - ./api/environments/prod.env
+    # no ports en prod
+
+  api:
+    ports:
+      - "8000"
+    env_file:
+      - ./api/environments/prod.env
+    # sin volumes
+    command: >
+      python -m uvicorn app.main:app
+      --host 0.0.0.0
+      --port 8000
