@@ -15,9 +15,10 @@ Backend para agregación y consulta de promociones bancarias.
 ### Dev
 
 ```bash
-docker compose -p banks-dev \
-  -f compose.yml \
-  -f compose.dev.yml \
+docker compose 
+  -p banks-dev \
+  -f docker-compose.yml \
+  -f docker-compose.dev.yml \
   up -d --build
 ```
 

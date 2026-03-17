@@ -3,8 +3,10 @@ services:
   db:
     ports:
       - "5432:5432"
-    env_file:
-      - ./api/environments/dev.env
+    environment:
+      POSTGRES_DB: dev_banks_discounts
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
 
   api:
     ports:
