@@ -1,0 +1,17 @@
+# compose.prod.yml (solo prod)
+services:
+  db:
+    environment:
+      POSTGRES_DB: prod_banks_discounts
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+  api:
+    env_file:
+      - ./api/environments/prod.env
+    expose:
+      - "8000"
+    command: >
+      python -m uvicorn app.main:app
+      --host 0.0.0.0
+      --port 8000

@@ -1,8 +1,10 @@
 # Python
 __pycache__/
 *.py[cod]
+*.diff
 
 # Packaging
 *.egg-info/
 dist/
 build/
+
