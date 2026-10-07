@@ -1,0 +1,76 @@
+{
+  "source_url": "https://www.sudameris.com.py/storage/app/uploads/public/6ac/015/2b5/6ac0152b5937f035511549.pdf",
+  "captured_on": "2026-10-05",
+  "note": "Official page-one conditions plus the original headings and first two station rows of each annex.",
+  "pages": [
+    {
+      "number": 1,
+      "text": "1\nESTACIONES DE SERVICIOS ENEX Y APP MI ENEX\nVIGENCIA\n• Desde el 01 de julio hasta el 31 de diciembre 2026.\n• Solo el primer lunes de cada mes.\n• 6 de julio.\n• 3 de agosto.\n• 7 de septiembre.\n• 5 de octubre.\n• 2 de noviembre.\n• 7 de diciembre.\nBENEFICIO\n• 10% de reintegro en estaciones físicas pagando con tarjetas de crédito de Sudameris.\n• 20% de reintegro a través de la app Mi Enex, pagando con tarjetas de crédito de Sudameris\nCONDICIONES\n• Tope de compra mensual por cuenta de tarjeta de crédito: Gs. 600.000.\n• Aplica a compras realizadas únicamente con tarjetas de crédito MasterCard y Visa de Sudameris Bank S.A.E.C.A.\n• Promoción válida única y exclusivamente para compras realizadas desde la aplicación Sudameris a través del POS de Bancard\n(Red Infonet), en estaciones de servicios “ENEX” y la App “MiEnex”, adheridas a la promoción (Ver listado abajo)\n• Las bases y condiciones están sujetas a modificaciones de acuerdo con las posibles variaciones del acuerdo con el comercio,\npor lo que el Banco se reserva el derecho de aplicar dichas modificaciones, sin previo aviso, y el cliente deberá verificar la\nversión actualizada de las Bases y condiciones antes de realizar la transacción.\n• Los reclamos se tomarán como válidos sobre el último documento actualizado y debe ser el documento vigente durante el\ndía de la compra reclamada.\n• No acumulable con otras promociones.\nEXCLUSIONES\n• Se excluyen del beneficio las tarjetas prepagas, de débito, Bancard Check, Gourmet Card, Móvil Card, Productivas y\nEmpresariales.\n• No aplica a compras a través de otras procesadoras (Dinelco, Cabal, etc), y/o subredes (PagoPar, etc).\n• No acumulable con otras promociones. No aplica a compras registradas bajo “ENEX SEGMENTACIÓN”.\nhttps://www.sudameris.com.py/beneficios",
+      "tables": []
+    },
+    {
+      "number": 2,
+      "text": "2\nESTACIONES DE SERVICIOS ENEX Y APP MI ENEX\nESTACIONES DE SERVICIOS FÍSICAS",
+      "tables": [
+        [
+          [
+            "",
+            "Estaciones",
+            "",
+            "",
+            "Dirección",
+            "",
+            "",
+            "Localidad",
+            ""
+          ],
+          [
+            "ENEX LUQUE CIT",
+            null,
+            null,
+            "Ybyturusu esq. Abdón Caballero",
+            null,
+            null,
+            "Luque",
+            null,
+            null
+          ],
+          [
+            "ENEX LUQUE CENTRO",
+            null,
+            null,
+            "Avda. Gral Aquino esq. Alberdi",
+            null,
+            null,
+            "Luque",
+            null,
+            null
+          ]
+        ]
+      ]
+    },
+    {
+      "number": 3,
+      "text": "3\nESTACIONES DE SERVICIOS ENEX Y MI APP ENEX\nESTACIONES DE SERVICIOS - MI APP ENEX",
+      "tables": [
+        [
+          [
+            "Estaciones MiEnex (APP)",
+            "Dirección",
+            "Localidad"
+          ],
+          [
+            "MI APP ENEX 1ER PDTE",
+            "Avda. Primer presidente esq. Marcelo Onieva",
+            "Asunción"
+          ],
+          [
+            "MI APP ENEX HERRERA",
+            "Avda. Perú esq. Herrera",
+            "Asunción"
+          ]
+        ]
+      ]
+    }
+  ]
+}
