@@ -1,0 +1,95 @@
+{
+  "captured_on": "2026-10-03",
+  "source_url": "https://www.ueno.com.py/wp-content/uploads/2026/09/Beneficio-Reintegro-SUPERMERCADOS-_-OCT-2026v2.pdf",
+  "detail_url": "https://www.ueno.com.py/beneficio-byc/oct2026/supermercados/",
+  "sha256": "ff0ba18d0f05840df9b06f93b9d73d4724dc5c0c5d75625caae1b597f8c5db4c",
+  "pages": [
+    {
+      "number": 1,
+      "text": "Bases y Condiciones\nPromoción Reintegro “Bolsa Supermercados”\nVigencia:\n● Desde el 01 de octubre hasta el 31 de octubre del 2026.\nSucursales adheridas / Comercios adheridos:\n● Supermercados adheridos en el Anexo I\nCondiciones:\n● El beneficio se aplicará a cada transacción individual realizada en un solo pago que sea igual o superior a Gs.\n300.000 (guaraníes trescientos mil), acumulando los reintegros correspondientes hasta alcanzar el tope máximo\nde compra fijado para cada nivel de cliente.\nMedios de pago habilitados:\n● Aplica únicamente a transacciones realizadas con tarjetas físicas y con billeteras electrónicas (Apple Pay / Google\nPay) con tarjetas de crédito Mastercard Dúo Clásica, Black o Albirroja, emitidas por ueno bank.\n● No aplica a pagos realizados mediante código QR, incluyendo los de la app ueno bank.\nBeneficio:\nEl beneficio se aplicará a cada cliente durante la vigencia de la promoción en los comercios mencionados en el Anexo I,\nsegún detalle:\nNIVEL DEL % DE MONTO DE COMPRA REINTEGRO MÁXIMO\nCLIENTE REINTEGRO (Gs.) (Gs.)\nnivel 5 40% Gs. 500.000 Gs. 200.000\nnivel 4 30% Gs. 400.000 Gs. 120.000\nnivel 3 25% Gs. 300.000 Gs. 75.000\nnivel 2 15% Gs. 300.000 Gs. 45.000\nnivel 1 10% Gs. 300.000 Gs. 30.000\n● El tope de compra/reintegro estará limitado a cada cliente conforme su nivel, durante la vigencia de la promoción.\n● El porcentaje de reintegro será según el nivel de cliente vigente que tengas al momento de realizar el pago. Si la\ncompra genera un cambio de nivel, el nuevo porcentaje de reintegro aplicará solamente para siguientes pagos.\n● El cliente podrá visualizar su nivel en la App de ueno bank S.A., en la sección de ‘‘Beneficios’’.",
+      "tables": [
+        [
+          [
+            "NIVEL DEL\nCLIENTE",
+            "% DE\nREINTEGRO",
+            "MONTO DE COMPRA\n(Gs.)",
+            "REINTEGRO MÁXIMO\n(Gs.)"
+          ],
+          [
+            "nivel 5",
+            "40%",
+            "Gs. 500.000",
+            "Gs. 200.000"
+          ],
+          [
+            "nivel 4",
+            "30%",
+            "Gs. 400.000",
+            "Gs. 120.000"
+          ],
+          [
+            "nivel 3",
+            "25%",
+            "Gs. 300.000",
+            "Gs. 75.000"
+          ],
+          [
+            "nivel 2",
+            "15%",
+            "Gs. 300.000",
+            "Gs. 45.000"
+          ],
+          [
+            "nivel 1",
+            "10%",
+            "Gs. 300.000",
+            "Gs. 30.000"
+          ]
+        ]
+      ]
+    },
+    {
+      "number": 3,
+      "text": "Nombre del comercio adherido |  | MEDIOS DE PAGO |  | Vigencia\n |  | POS / VPOS y/o link de pago: |  | \n1 | ARCHI SUPERMERCADOS | upay |  | 1 al 31 de Octubre.\n2 | CADENA REAL | upay |  | 1 al 31 de Octubre.\n3 | CADENA REAL (Aplica únicamente por el sitio\nweb) |  | bancard | 1 al 31 de Octubre.",
+      "tables": [
+        [
+          [
+            "Nombre del comercio adherido",
+            null,
+            "MEDIOS DE PAGO",
+            null,
+            "Vigencia"
+          ],
+          [
+            "",
+            "",
+            "POS / VPOS y/o link de pago:",
+            null,
+            ""
+          ],
+          [
+            "1",
+            "ARCHI SUPERMERCADOS",
+            "upay",
+            "",
+            "1 al 31 de Octubre."
+          ],
+          [
+            "2",
+            "CADENA REAL",
+            "upay",
+            "",
+            "1 al 31 de Octubre."
+          ],
+          [
+            "3",
+            "CADENA REAL (Aplica únicamente por el sitio\nweb)",
+            "",
+            "bancard",
+            "1 al 31 de Octubre."
+          ]
+        ]
+      ]
+    }
+  ]
+}

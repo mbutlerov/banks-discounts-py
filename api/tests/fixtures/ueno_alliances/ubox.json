@@ -1,0 +1,103 @@
+{
+  "captured_on": "2026-10-03",
+  "source_url": "https://www.ueno.com.py/wp-content/uploads/2026/08/Beneficio-de-Reintegro-ubox-_-OCT-2026v1.pdf",
+  "detail_url": "https://www.ueno.com.py/beneficio-byc/sep2026/ubox/",
+  "sha256": "e37d8aa704601cb19665c667ec02ed04bc6208a4b0396aea3cf4ebf74a7f8f09",
+  "pages": [
+    {
+      "number": 1,
+      "text": "Bases y Condiciones\nBeneficio Reintegro “ubox¨\nVigencia:\n● Desde el 01 de septiembre hasta el 31 de diciembre del 2026.\nCondiciones:\n● Aplica únicamente a transacciones realizadas con tarjetas físicas y con billeteras electrónicas (Apple Pay / Google\nPay) con tarjetas de crédito Mastercard Dúo Clásica, Black, Ultra black y/o Albirroja, emitidas por ueno bank.\n● Válido para pagos de manera física en los POS de la Red Upay en concepto de retiro de paquete, solicitados a\ntravés del servicio de ubox.\n● No aplica a pagos realizados mediante código QR, incluyendo los de la app ueno bank.\n● Puntos de retiro detallados en el Anexo I.\nBeneficio:\n● El beneficio se aplicará a cada cliente durante la vigencia de la promoción, según el tipo de tarjeta de crédito\nactiva en ueno bank S.A.\nTope de pago en\nLímite de Suma máxima de\nTipo Tarjeta % de reintegro concepto de retiro\nreintegro (Gs.) reintegro (Gs.)\nde paquete (Gs.)\nTC MasterCard Dúo\nClásicas, ueno black y 20% Gs. 127.000 Gs. 25.400 Gs. 25.400\nultra black, Albirroja\nTC MasterCard Dúo\nueno black y ultra + 30% adicional Gs. 127.000 Gs.38.100 Gs. 63.500\nblack\n● El tope de pago en concepto de retiro de paquete y el límite de reintegro se encuentran unificados durante la\nvigencia de la presente promoción. Por lo tanto, el participante podrá alcanzar el beneficio máximo en una sola\ntransacción o mediante múltiples operaciones, hasta agotar el límite establecido para la campaña.\n● Para la presente promoción, el tope de pago en concepto de retiro de paquete se aplica de forma conjunta\nindistintamente al tipo de tarjeta de crédito activa.\n● El beneficio adicional del 30% de reintegro para TC Black y ultra black se sumará al beneficio base, con un\nmáximo de reintegro de hasta Gs. 63.500 en total (beneficio base + adicional). En ningún caso el reintegro total\npodrá superar los límites establecidos en el Cuadro de Beneficios.\n● El beneficio será aplicable al momento del retiro del paquete sobre el valor de hasta 1 kg del costo de envío desde\nUSA hasta la casilla ubox.\n",
+      "tables": [
+        [
+          [
+            "Tipo Tarjeta",
+            "% de reintegro",
+            "Tope de pago en\nconcepto de retiro\nde paquete (Gs.)",
+            "Límite de\nreintegro (Gs.)",
+            "Suma máxima de\nreintegro (Gs.)"
+          ],
+          [
+            "TC MasterCard Dúo\nClásicas, ueno black y\nultra black, Albirroja",
+            "20%",
+            "Gs. 127.000",
+            "Gs. 25.400",
+            "Gs. 25.400"
+          ],
+          [
+            "TC MasterCard Dúo\nueno black y ultra\nblack",
+            "+ 30% adicional",
+            "Gs. 127.000",
+            "Gs.38.100",
+            "Gs. 63.500"
+          ]
+        ]
+      ]
+    },
+    {
+      "number": 2,
+      "text": "Locales ueno bank x |  | Dirección\n1 | Paseo la Galería | 📍Av. Sta. Teresa N° 1827, Asunción 001410\n2 | Luque | 📍Cerro Corá esq, Fulgencio Yegros y, Luque 1213\n3 | Palma | 📍Palma esq, Asunción 001101\n4 | Lambaré | 📍Av. Cacique Lambare, Lambaré 110723\n5 | Multiplaza | 📍Av. Eusebio Ayala 4501, Asunción 001419\n6 | Villamorra | 📍Av. Mariscal López esq, Asunción 001411\n7 | San Lorenzo | 📍Ruta Mariscal José Felix Estigarribia esq, San Lorenzo 111430",
+      "tables": [
+        [
+          [
+            "Locales ueno bank x",
+            null,
+            "Dirección"
+          ],
+          [
+            "1",
+            "Paseo la Galería",
+            "📍Av. Sta. Teresa N° 1827, Asunción 001410"
+          ],
+          [
+            "2",
+            "Luque",
+            "📍Cerro Corá esq, Fulgencio Yegros y, Luque 1213"
+          ],
+          [
+            "3",
+            "Palma",
+            "📍Palma esq, Asunción 001101"
+          ],
+          [
+            "4",
+            "Lambaré",
+            "📍Av. Cacique Lambare, Lambaré 110723"
+          ],
+          [
+            "5",
+            "Multiplaza",
+            "📍Av. Eusebio Ayala 4501, Asunción 001419"
+          ],
+          [
+            "6",
+            "Villamorra",
+            "📍Av. Mariscal López esq, Asunción 001411"
+          ],
+          [
+            "7",
+            "San Lorenzo",
+            "📍Ruta Mariscal José Felix Estigarribia esq, San Lorenzo 111430"
+          ]
+        ]
+      ]
+    },
+    {
+      "number": 3,
+      "text": "Locales ueno bank x |  | Dirección\n8 | Matrix | 📍Av. Sta. Teresa, Asunción 001410",
+      "tables": [
+        [
+          [
+            "Locales ueno bank x",
+            null,
+            "Dirección"
+          ],
+          [
+            "8",
+            "Matrix",
+            "📍Av. Sta. Teresa, Asunción 001410"
+          ]
+        ]
+      ]
+    }
+  ]
+}
