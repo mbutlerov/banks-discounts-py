@@ -1,7 +1,18 @@
 # Documentación del proyecto
 
+La [CI y el contrato entre repositorios](ci-and-contracts.md) describen las verificaciones automáticas, la generación de tipos/validadores y la prueba del frontend contra FastAPI y PostgreSQL reales.
+
+Para retomar el proyecto, empezar por el [README operativo](../../README.md),
+el [esquema vigente](database/schema-overview.md), la
+[arquitectura de scraping](../app/scraping/scraping_architecture.md) y el
+[ADR de ofertas, calendario e ingesta](adr/005-offers-calendar-and-ingestion.md).
+Los documentos de la primera etapa se conservan como antecedentes; el esquema
+vigente y los ADR 005/006 describen la implementación actual.
+
 Este directorio contiene la documentación técnica del proyecto. Su objetivo es dejar registradas las decisiones importantes, el diseño inicial de la base de datos, la configuración de entornos y el flujo general de ingestión de datos.
-Siglas `adr`=Architecture Desicion Records.
+La normalización comercial y sus comandos de revisión están documentados en [ADR 006](adr/006-merchants-and-location-membership.md) y [operación de comercios y locales](database/merchant-management.md).
+
+Siglas `adr`=Architecture Decision Records.
 
 La intención es que cualquier persona que tome el proyecto en el futuro pueda entender:
 
@@ -19,13 +30,19 @@ docs/
 │   ├── 001-compose-by-environment.md
 │   ├── 002-alembic-inside-container.md
 │   ├── 003-initial-promotion-data-model.md
-│   └── 004-enums-in-database-layer.md
+│   ├── 004-enums-in-database-layer.md
+│   ├── 005-offers-calendar-and-ingestion.md
+│   └── 006-merchants-and-location-membership.md
 ├── database/
 │   ├── schema-overview.md
 │   ├── first-migration-scope.md
-│   └── future-tables.md
+│   ├── future-tables.md
+│   └── merchant-management.md
 ├── docker/
 │   └── environment-setup.md
+├── deployment/
+│   ├── oracle-free.md
+│   └── render-neon-free.md
 └── scraping/
     └── ingestion-flow.md
 ```
@@ -49,6 +66,12 @@ Ir a `docs/docker/environment-setup.md`.
 
 #### 5. Si se quiere entender el flujo previsto de scraping e ingestión
 Ir a `docs/scraping/ingestion-flow.md`.
+
+#### 6. Si se quiere desplegar una prueba personal gratuita
+Leer [Oracle Cloud + Vercel](deployment/oracle-free.md): instancia, secretos,
+HTTPS, migraciones, frontend privado y backups.
+La alternativa [Render Free + Neon + Vercel](deployment/render-neon-free.md)
+publica la API y la base mientras la adquisición de documentos continúa localmente.
 
 ## Principios de documentación
 Esta carpeta sigue los siguientes criterios:

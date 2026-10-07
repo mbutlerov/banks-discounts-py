@@ -57,6 +57,7 @@ docker-compose \
   ### Producción
   ```bash
   docker-compose \
+  --env-file deploy.env \
   -p banks-prod \
   -f docker-compose.yml \
   -f docker-compose.prod.yml \
@@ -89,6 +90,12 @@ La idea general es:
 - centralizar configuración sensible o variable.
 - evitar hardcodear valores dentro de los archivos Compose
 - permitir diferencias claras entre desarrollo y producción.
+
+Producción obtiene contraseña y claves desde `deploy.env`, creado a partir de
+`deploy.env.example`; Compose rechaza una configuración sin password o sin clave
+de acceso de API. El override publica sólo 80/443 a través de Caddy. Ver la
+[guía de despliegue](../deployment/oracle-free.md) para ejecutar migraciones antes
+del worker, configurar HTTPS y proteger también la web.
 
 ### Relación con Alembic
 Dado que la aplicación y la base de datos viven dentro de la red Docker, las migraciones deben ejecutarse dentro del contenedor de aplicación para compartir el mismo entorno y resolver correctamente dependencias como el host `db`.

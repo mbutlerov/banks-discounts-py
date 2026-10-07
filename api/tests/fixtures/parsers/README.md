@@ -4,7 +4,10 @@ Capturas de lectura del **03/10/2026**, ampliadas el **05/10/2026** con los
 documentos guardados al revisar pendientes y el **06/10/2026** con registros
 de la API pública GNB. Son campos públicos y celdas de
 tablas; algunos HTML conservan la estructura funcional de la página de detalle.
-No se versionan PDFs completos ni activos binarios del banco.
+No se versionan PDFs completos ni activos binarios del banco. Los fragmentos
+HTML normalizan saltos de línea y espacios al final de cada línea; los hashes
+que aparecen en sus comentarios identifican el snapshot original, no el fixture.
+Los snapshots operativos conservan los bytes originales fuera de Git.
 Las filas JSON son resultados reales de `pdfplumber.extract_tables`; `None`
 representa una celda fusionada. La suite funciona sin red y sin base de datos.
 
