@@ -1,0 +1,38 @@
+# Personal preview: the API runs on Render; PostgreSQL lives in Neon.
+# Migrations, ingestion and document storage run locally (see the guide).
+services:
+  - type: web
+    name: banks-discounts-api
+    runtime: docker
+    plan: free
+    region: ohio
+    dockerfilePath: ./api/Dockerfile
+    dockerContext: ./api
+    dockerCommand: sh docker/start-render.sh
+    healthCheckPath: /healthz
+    autoDeployTrigger: checksPass
+    envVars:
+      - key: ENV
+        value: render
+      - key: REQUIRE_API_ACCESS_KEY
+        value: "true"
+      - key: API_ACCESS_KEY
+        sync: false
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        value: "5432"
+      - key: DB_NAME
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_SSLMODE
+        value: require
+      - key: CORS_ORIGINS
+        value: ""
+      - key: ADMIN_API_KEY
+        value: ""
+      - key: ENABLE_AI_ENRICHMENT
+        value: "false"
