@@ -19,6 +19,22 @@ services:
       db:
         condition: service_healthy
     restart: unless-stopped
+    volumes:
+      - snapshots:/app/data
+
+  scraper:
+    profiles: ["scraping"]
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    depends_on:
+      db:
+        condition: service_healthy
+    command: python -m app.scraping.cli worker --schedule
+    volumes:
+      - snapshots:/app/data
+    restart: unless-stopped
 
 volumes:
   pgdata:
+  snapshots:

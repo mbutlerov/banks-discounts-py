@@ -1,0 +1,20 @@
+{
+	email {$TLS_EMAIL}
+}
+
+{$API_DOMAIN} {
+	encode gzip
+
+	# All public access needs the private key configured on the Next.js server.
+	# Administrative endpoints still require their separate Bearer token.
+	@authorized header X-API-Key {$API_ACCESS_KEY}
+	handle @authorized {
+		reverse_proxy api:8000 {
+			header_up -X-API-Key
+		}
+	}
+
+	handle {
+		respond "Unauthorized" 401
+	}
+}
