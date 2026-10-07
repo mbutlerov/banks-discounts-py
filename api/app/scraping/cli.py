@@ -24,7 +24,7 @@ def refresh_calendar() -> int:
     count = 0
     for bank in BANKS:
         lock_key = int.from_bytes(hashlib.sha256(("banks-discounts:" + bank).encode()).digest()[:8], "big", signed=True)
-        with engine.connect() as lock:
+        with engine.connect().execution_options(isolation_level="AUTOCOMMIT") as lock:
             if not lock.execute(text("SELECT pg_try_advisory_lock(:key)"), {"key": lock_key}).scalar():
                 continue  # The active ingestion regenerates its own offers.
             try:
@@ -133,8 +133,7 @@ def main() -> int:
         print(json.dumps({"refreshed": refresh_calendar()}))
         return 0
     if args.command == "replay":
-        with SessionLocal() as db:
-            bank, responses = load_replay(db, args.document_id)
+        bank, responses = load_replay(None, args.document_id)
         result = run_bank(bank, replay=responses)
         print(json.dumps(result, ensure_ascii=False))
         return 1 if result["state"] == "failed" else 0
