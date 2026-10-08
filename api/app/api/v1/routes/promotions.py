@@ -7,13 +7,15 @@ from typing import Literal
 from fastapi import APIRouter, Depends, HTTPException, Query
 from pydantic import ValidationError
 from sqlalchemy import exists, func, or_
-from sqlalchemy.orm import Session, selectinload
+from sqlalchemy.orm import Session, contains_eager, load_only, selectinload
 
 from app.database.models.bank import Bank
 from app.database.models.category import Category
 from app.database.models.promotion import Promotion
 from app.database.models.ingestion import PromotionOverride
 from app.database.models.offer import OfferOccurrence, PromotionOffer
+from app.database.models.merchant_group import MerchantGroup
+from app.database.models.merchant_location import MerchantLocation
 from app.database.models.merchant_membership import MerchantOfferRule, OfferLocation
 from app.database.session import get_db
 from app.promotions.availability import MAX_QUERY_DAYS, applies_on, availability_state, matching_dates, today_local
@@ -89,6 +91,42 @@ def _load_options() -> tuple:
         selectinload(Promotion.offers).selectinload(PromotionOffer.rule),
         selectinload(Promotion.offers).selectinload(PromotionOffer.location_memberships).selectinload(OfferLocation.location),
     )
+
+
+def _list_load_options() -> tuple:
+    """Load filtering and grouping data; response text follows pagination."""
+    offers = selectinload(Promotion.offers).load_only(
+        PromotionOffer.promotion_id, PromotionOffer.key, PromotionOffer.publication,
+        PromotionOffer.data_jsonb, PromotionOffer.version, PromotionOffer.coverage_from,
+        PromotionOffer.coverage_until, PromotionOffer.occurrences_version,
+        PromotionOffer.merchant_group_id, PromotionOffer.rule_id, PromotionOffer.location_scope,
+        raiseload=True,
+    )
+    return (
+        load_only(
+            Promotion.bank_id, Promotion.category_id, Promotion.slug, Promotion.title,
+            Promotion.publication, Promotion.start_date, Promotion.end_date,
+            Promotion.benefit_type, Promotion.discount_percentage, raiseload=True,
+        ),
+        contains_eager(Promotion.bank).load_only(Bank.slug, Bank.name, raiseload=True),
+        contains_eager(Promotion.category).load_only(Category.slug, Category.name, raiseload=True),
+        offers.joinedload(PromotionOffer.merchant_group).load_only(MerchantGroup.name, raiseload=True),
+        offers.joinedload(PromotionOffer.rule).load_only(MerchantOfferRule.context_key, raiseload=True),
+        offers.selectinload(PromotionOffer.location_memberships).load_only(
+            OfferLocation.offer_id, OfferLocation.location_id, OfferLocation.publication,
+            OfferLocation.data_jsonb, raiseload=True,
+        ).joinedload(OfferLocation.location).load_only(
+            MerchantLocation.name, MerchantLocation.city, MerchantLocation.address, raiseload=True,
+        ),
+    )
+
+
+def _load_promotion_columns(db: Session, parents: list[Promotion], columns: tuple) -> None:
+    # Fill deferred attributes on the existing candidates in one batch. Do not
+    # expire their already-loaded offers or issue a lazy query for each parent.
+    ids = {parent.id for parent in parents}
+    if ids:
+        db.query(Promotion).options(load_only(*columns, raiseload=True)).filter(Promotion.id.in_(ids)).all()
 
 
 def _effective_data(p: Promotion, data: OfferData, corrections: list[PromotionOverride]) -> OfferData:
@@ -206,7 +244,7 @@ def list_promotions(
         raise HTTPException(422, "min_discount must not exceed max_discount")
     include_pending = include_pending or status in {"pending", "all"}
     q = db.query(Promotion).join(Promotion.bank).outerjoin(Promotion.category).options(
-        *_load_options()
+        *_list_load_options()
     ).filter(Promotion.publication != "retired", Bank.is_active.is_(True))
     if bank_slug:
         slugs = [slug for value in bank_slug for slug in value.split(",") if slug]
@@ -240,6 +278,9 @@ def list_promotions(
             indexed_match = indexed_match.where(func.extract("isodow", OfferOccurrence.applies_on) == weekday)
         q = q.filter(or_(fallback, corrections, indexed_match))
     candidates = q.order_by(Promotion.id).all()
+    # Historical promotions without offers still need their original metadata
+    # for card/installment filters and conservative legacy availability.
+    _load_promotion_columns(db, [p for p in candidates if not p.offers], (Promotion.metadata_jsonb,))
     overrides: dict[int, list[PromotionOverride]] = {}
     if candidates:
         for row in db.query(PromotionOverride).filter(PromotionOverride.active.is_(True), PromotionOverride.promotion_id.in_([p.id for p in candidates])).order_by(PromotionOverride.id):
@@ -298,9 +339,15 @@ def list_promotions(
     )
     total = len(ordered_groups)
     offset = (page - 1) * size
+    page_groups = ordered_groups[offset:offset + size]
+    _load_promotion_columns(
+        db, [parent for parent, _, _, _ in page_groups],
+        (Promotion.short_description, Promotion.description, Promotion.terms_summary,
+         Promotion.last_verified_at, Promotion.metadata_jsonb),
+    )
     items = [
         _serialize(parent, merchant, variants, grouping)
-        for parent, merchant, variants, grouping in ordered_groups[offset:offset + size]
+        for parent, merchant, variants, grouping in page_groups
     ]
     return PromotionsResponse(total=total, page=page, size=size, date_from=first, date_to=last, items=items)
 
