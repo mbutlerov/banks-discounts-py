@@ -36,6 +36,40 @@ class OfficialParserTests(unittest.TestCase):
         self.assertEqual(offers[0].valid_until, date(2026, 6, 30))
         self.assertTrue(all(o.schedule.weekdays == [1, 2] for o in offers))
 
+    def test_gnb_pdf_sections_accepts_only_observed_ordered_heading_templates(self):
+        fixtures = [
+            "1. Vigencia\nDel 01 de julio al 30 de noviembre del 2026.\n"
+            "2. Condiciones\nDel 31 de diciembre del 2030; 95% es una condición ajena.\n"
+            "3. Beneficio\n� 20% de descuento para pagos con tarjetas de crédito Mastercard.\n"
+            "� 10% de descuento para pagos con tarjetas prepagas.\n"
+            "4. Mecánica\n99% no es un beneficio.\n",
+            "1. Vigencia\nDel 01 de julio al 30 de noviembre del 2026.\n"
+            "1. Condiciones\nDel 31 de diciembre del 2030; 95% es una condición ajena.\n"
+            "2. Beneficio\n� 20% de descuento para pagos con tarjetas de crédito Mastercard.\n"
+            "� 10% de descuento para pagos con tarjetas prepagas.\n"
+            "3. Mec�nica\n99% no es un beneficio.\n",
+        ]
+        for text in fixtures:
+            with self.subTest(template=text.splitlines()[0:8]):
+                offers = parse_gnb_pdf([PdfPage(1, text)], "https://example.test/terms.pdf", "Comercio")
+                self.assertEqual([offer.benefits[0].percentage for offer in offers], [20, 10])
+                self.assertTrue(all(offer.valid_from == date(2026, 7, 1) and
+                                    offer.valid_until == date(2026, 11, 30) for offer in offers))
+                benefit_evidence = [e.text for offer in offers for e in offer.evidence if e.field == "benefit"]
+                validity_evidence = [e.text for offer in offers for e in offer.evidence if e.field == "validity"]
+                self.assertTrue(all("95%" not in text and "99%" not in text for text in benefit_evidence))
+                self.assertTrue(all("95%" not in text for text in validity_evidence))
+                self.assertEqual(offers[1].eligibility.card_types, ["prepaid"])
+                self.assertEqual(offers[1].caps, [])
+
+    def test_gnb_pdf_rejects_out_of_order_section_headings(self):
+        text = (
+            "1. Vigencia\nDel 01 de julio al 30 de noviembre del 2026.\n"
+            "2. Beneficio\n� 20% de descuento.\n"
+            "2. Condiciones\n3. Mec�nica\n"
+        )
+        self.assertEqual(parse_gnb_pdf([PdfPage(1, text)], "https://example.test/terms.pdf", "Comercio"), [])
+
 
 def test_gnb_uses_current_production_route_when_bank_links_legacy_root():
     http = FakeHttp({OFFICIAL_CARDS_URL: '<a href="https://www.beneficiosbancognb.com.py/">Beneficios</a>', PORTAL_URL: HttpClientError("HTTP 403")})

@@ -12,17 +12,37 @@ from app.scraping.schemas import ScrapedPromotion, ScrapedSource
 from app.scraping.utils.offers import extract_caps, extract_validity, identity, legacy_summary, make_offer
 
 
+def _gnb_pdf_sections(text: str) -> tuple[str, str] | None:
+    """Return validity and benefit blocks for the two observed GNB templates."""
+    heading = re.compile(
+        r"(?im)^\s*([1-4])\s*\.\s*(Vigencia|Condiciones|Beneficio|Mec[aá\uFFFD]nica)\b"
+    )
+    expected = {
+        (("1", "vigencia"), ("2", "condiciones"), ("3", "beneficio"), ("4", "mecánica")),
+        (("1", "vigencia"), ("1", "condiciones"), ("2", "beneficio"), ("3", "mecánica")),
+    }
+    matches = list(heading.finditer(text))
+    for index in range(len(matches) - 3):
+        sequence = matches[index:index + 4]
+        actual = tuple((number, "mecánica" if label.lower().startswith("mec") else label.lower())
+                       for number, label in (match.groups() for match in sequence))
+        if actual in expected:
+            return (text[sequence[0].end():sequence[1].start()],
+                    text[sequence[2].end():sequence[3].start()])
+    return None
+
+
 def parse_gnb_pdf(pages: list[PdfPage], url: str, merchant: str) -> list:
     """Parse bounded single-merchant GNB terms, preserving credit/prepaid tiers."""
     text = "\n".join(page.text for page in pages)
-    validity = re.search(r"1\.\s*Vigencia\s*(.*?)2\.\s*Condiciones", text, re.I | re.S)
-    benefits = re.search(r"3\.\s*Beneficio\s*(.*?)4\.\s*Mec[aá]nica", text, re.I | re.S)
-    if not validity or not benefits:
+    sections = _gnb_pdf_sections(text)
+    if not sections:
         return []
-    start, end = extract_validity(validity[1])
+    validity_text, benefits_text = sections
+    start, end = extract_validity(validity_text)
     schedule = re.search(r"El beneficio aplica.*?(?:\.|\n\s*[•●])", text, re.I | re.S)
     schedule_text = " ".join(schedule[0].split()) if schedule else ""
-    clauses = [clause.strip() for clause in re.split(r"[•●]", benefits[1]) if "%" in clause]
+    clauses = [clause.strip() for clause in re.split(r"(?m)[•●]|^\s*�\s+", benefits_text) if "%" in clause]
     offers = []
     for i, clause in enumerate(clauses):
         card_condition = re.sub(r"^.*?para\s+pagos\s+con\s+", "", clause, flags=re.I)
@@ -30,7 +50,7 @@ def parse_gnb_pdf(pages: list[PdfPage], url: str, merchant: str) -> list:
                            text=text, days=schedule_text, benefits_text=clause, card_text=card_condition,
                            valid_from=start, valid_until=end,
                            evidence=[Evidence(source_url=url, page=pages[0].number, field="benefit", text=clause),
-                                     Evidence(source_url=url, field="validity", text=validity[1])])
+                                     Evidence(source_url=url, field="validity", text=validity_text)])
         if "prepag" in card_condition.lower():
             # The cited credit-account cap is not established for prepaid cards.
             offer.caps = []
