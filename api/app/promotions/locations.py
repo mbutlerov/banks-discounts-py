@@ -1,6 +1,7 @@
 """Source-backed chain presentation, without changing persisted offer identities."""
 from __future__ import annotations
 
+from functools import lru_cache
 from hashlib import sha256
 import json
 import unicodedata
@@ -20,15 +21,26 @@ def _digest(value: object) -> str:
     return sha256(json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()).hexdigest()[:24]
 
 
+@lru_cache(maxsize=128)
+def _petropar_contract(terms: tuple[str, ...]) -> bool:
+    # Card variants repeat the same immutable legal text. Cache only its
+    # classification; document, dates and grouping identity stay per offer.
+    return any("bolsa petropar" in _normalized(term) for term in terms)
+
+
 def chain_group(bank_slug: str, offer: OfferData) -> PromotionGrouping | None:
     # A name prefix alone is insufficient: a shared fuel catalogue can contain
     # several brands/campaigns. Only this recognized contract and its annex qualify.
-    if bank_slug != "ueno" or not any("bolsa petropar" in _normalized(term) for term in offer.terms):
+    if bank_slug != "ueno":
         return None
     annex = [item for item in offer.evidence if item.section == "merchant-annex" and item.source_url]
     benefit = [item for item in offer.evidence if item.section == "benefit-table" and item.source_url]
     documents = {item.source_url for item in annex + benefit}
     if not annex or not benefit or len(documents) != 1:
+        return None
+    # Most offers cannot belong to this contract. Check their short evidence
+    # references before normalizing the full legal text of every card variant.
+    if not _petropar_contract(tuple(offer.terms)):
         return None
     identity = [bank_slug, next(iter(documents)), str(offer.valid_from), str(offer.valid_until),
                 offer.validity_state, offer.start_open, offer.end_open]

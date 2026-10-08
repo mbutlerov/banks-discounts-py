@@ -99,6 +99,47 @@ def test_grouping_count_and_pagination_after_calendar(client, db):
     assert second["items"][0]["matched_dates"] == ["2026-10-03"]
 
 
+def test_paginated_groups_match_full_result_with_overrides_pending_and_chains(client, db):
+    create_offer(db, key="cafe-basic", merchant="Cafe", weekdays=[6])
+    create_offer(db, key="cafe-gold", merchant="Cafe", weekdays=[6], percentage=30)
+    create_offer(db, key="bakery", merchant="Bakery", weekdays=[6])
+    corrected, _, original = create_offer(db, key="corrected", merchant="Corrected", weekdays=[7])
+    db.add(PromotionOverride(
+        promotion_id=corrected.id,
+        offer_key=original.key,
+        patch_jsonb={"schedule": {"weekdays": [6]}},
+        reason="Verified purchase-day correction",
+    ))
+    create_offer(db, key="pending", merchant="Pending", publication="pending", schedule=Schedule(state="unknown"))
+    create_offer(db, key="atlas-coffee", merchant="Coffee", weekdays=[6], bank_slug="atlas")
+    create_station(db, "petropar-terminal", "PETROPAR TERMINAL")
+    create_station(db, "petropar-luque", "PETROPAR LUQUE", city="Luque", address="Avda. Pinasco")
+    db.flush()
+
+    params = {"date": "2026-10-03", "include_pending": "true"}
+    complete = client.get("/api/v1/promotions", params={**params, "size": 100}).json()
+    page_size = 2
+    paged_items = []
+    page_count = (complete["total"] + page_size - 1) // page_size
+    for page in range(1, page_count + 1):
+        response = client.get("/api/v1/promotions", params={**params, "size": page_size, "page": page}).json()
+        assert response["total"] == complete["total"]
+        paged_items.extend(response["items"])
+
+    beyond_last = client.get(
+        "/api/v1/promotions",
+        params={**params, "size": page_size, "page": page_count + 1},
+    ).json()
+    assert beyond_last["total"] == complete["total"]
+    assert beyond_last["items"] == []
+    assert paged_items == complete["items"]
+    assert next(item for item in paged_items if item["merchant_name"] == "Cafe")["variants"]
+    assert next(item for item in paged_items if item["merchant_name"] == "Pending")["availability"] == "unknown"
+    chain = next(item for item in paged_items if item["grouping"])
+    assert chain["merchant_name"] == "Petropar"
+    assert len(chain["locations"]) == 2
+
+
 def test_unknown_visible_only_when_requested(client, db):
     create_offer(db, publication="pending", schedule=Schedule(state="unknown"))
     assert client.get("/api/v1/promotions", params={"date": "2026-10-03"}).json()["total"] == 0

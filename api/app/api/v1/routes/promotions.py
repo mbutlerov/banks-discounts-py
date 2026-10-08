@@ -215,7 +215,6 @@ def list_promotions(
         q = q.filter(Category.slug == category_slug)
     # All variant filters precede grouping, counting and paging. The calendar
     # evaluator remains authoritative outside/stale occurrence coverage too.
-    results: list[PromotionResponse] = []
     weekday = DAY_NAMES.index(day) + 1 if day else None
     needle = search.casefold().strip() if search else None
     if not include_pending:
@@ -289,10 +288,21 @@ def list_promotions(
             if grouping:
                 variant = variant.model_copy(update={"key": f"{p.id}:{variant.key}"})
             groups[key][2].append(variant)
-    results.extend(_serialize(parent, merchant, variants, grouping) for parent, merchant, variants, grouping in groups.values())
-    results.sort(key=lambda item: (item.bank.name.casefold(), (item.merchant_name or item.title).casefold(), item.slug))
+    ordered_groups = sorted(
+        groups.values(),
+        key=lambda group: (
+            group[0].bank.name.casefold(),
+            (group[1] or group[0].title).casefold(),
+            group[0].slug,
+        ),
+    )
+    total = len(ordered_groups)
     offset = (page - 1) * size
-    return PromotionsResponse(total=len(results), page=page, size=size, date_from=first, date_to=last, items=results[offset:offset + size])
+    items = [
+        _serialize(parent, merchant, variants, grouping)
+        for parent, merchant, variants, grouping in ordered_groups[offset:offset + size]
+    ]
+    return PromotionsResponse(total=total, page=page, size=size, date_from=first, date_to=last, items=items)
 
 
 @router.get("/{slug}", response_model=PromotionResponse)
