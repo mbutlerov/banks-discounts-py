@@ -1,0 +1,28 @@
+# Standalone local CLI: connects to Neon and persists PDFs/OCR on this PC.
+# It does not start the development PostgreSQL or publish any HTTP ports.
+services:
+  scraper:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    env_file:
+      - ./neon.env
+    environment:
+      ENV: neon
+      DB_HOST: ${DB_HOST:?Set DB_HOST in neon.env}
+      DB_PORT: ${DB_PORT:-5432}
+      DB_NAME: ${DB_NAME:?Set DB_NAME in neon.env}
+      DB_USER: ${DB_USER:?Set DB_USER in neon.env}
+      DB_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD in neon.env}
+      DB_SSLMODE: require
+      API_ACCESS_KEY: ""
+      REQUIRE_API_ACCESS_KEY: "false"
+      ADMIN_API_KEY: ""
+      ENABLE_AI_ENRICHMENT: "false"
+      SNAPSHOT_DIR: /app/data/snapshots
+    command: python -m app.scraping.cli run --bank all
+    volumes:
+      - neon_snapshots:/app/data
+
+volumes:
+  neon_snapshots:

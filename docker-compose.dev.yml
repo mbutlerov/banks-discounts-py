@@ -2,7 +2,7 @@
 services:
   db:
     ports:
-      - "5432:5432"
+      - "127.0.0.1:5432:5432"
     environment:
       POSTGRES_DB: dev_banks_discounts
       POSTGRES_USER: postgres
@@ -10,11 +10,14 @@ services:
 
   api:
     ports:
-      - "8000:8000"
+      - "127.0.0.1:8000:8000"
     env_file:
       - ./api/environments/dev.env
+      - path: ./api/environments/private.env
+        required: false
     volumes:
       - ./api/app:/app/app
+      - ./api/alembic:/app/alembic
     environment:
       WATCHFILES_FORCE_POLLING: "true"
     command: >
@@ -23,3 +26,11 @@ services:
       --port 8000
       --reload
       --reload-dir /app/app
+
+  scraper:
+    env_file:
+      - ./api/environments/dev.env
+      - path: ./api/environments/private.env
+        required: false
+    volumes:
+      - ./api/app:/app/app

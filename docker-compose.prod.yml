@@ -1,17 +1,63 @@
-# compose.prod.yml (solo prod)
+# Use with --env-file deploy.env; development keeps its own credentials.
+x-production-environment: &production-environment
+  DB_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD in deploy.env}
+  ADMIN_API_KEY: ${ADMIN_API_KEY:-}
+  CORS_ORIGINS: ${CORS_ORIGINS:-}
+  ENABLE_AI_ENRICHMENT: "false"
+  SNAPSHOT_DIR: /app/data/snapshots
+  SCRAPING_INTERVAL_SECONDS: ${SCRAPING_INTERVAL_SECONDS:-86400}
+
 services:
   db:
     environment:
       POSTGRES_DB: prod_banks_discounts
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD in deploy.env}
 
   api:
     env_file:
       - ./api/environments/prod.env
+    environment: *production-environment
     expose:
       - "8000"
     command: >
       python -m uvicorn app.main:app
       --host 0.0.0.0
       --port 8000
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import json, urllib.request; result = json.load(urllib.request.urlopen('http://127.0.0.1:8000/api/v1/health', timeout=3)); raise SystemExit(0 if result.get('db') == 'ok' else 1)"
+      interval: 15s
+      timeout: 5s
+      start_period: 20s
+      retries: 3
+
+  scraper:
+    env_file:
+      - ./api/environments/prod.env
+    environment: *production-environment
+
+  proxy:
+    image: caddy:2-alpine
+    depends_on:
+      api:
+        condition: service_healthy
+    environment:
+      API_DOMAIN: ${API_DOMAIN:?Set API_DOMAIN in deploy.env}
+      API_ACCESS_KEY: ${API_ACCESS_KEY:?Set API_ACCESS_KEY in deploy.env}
+      TLS_EMAIL: ${TLS_EMAIL:?Set TLS_EMAIL in deploy.env}
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./docker/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    restart: unless-stopped
+
+volumes:
+  caddy_data:
+  caddy_config:

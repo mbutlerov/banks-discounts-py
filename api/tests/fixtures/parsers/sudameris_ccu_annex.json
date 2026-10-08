@@ -1,0 +1,53 @@
+{
+  "source_url": "https://www.sudameris.com.py/storage/app/media/ByC/bc-estacionesccu-ecop-060726.pdf",
+  "captured_on": "2026-10-05",
+  "note": "Official page-one conditions plus the original headings and first two station rows of each annex.",
+  "pages": [
+    {
+      "number": 1,
+      "text": "1\nECOP - Estaciones de Servicio CCU\nVIGENCIA\n• Desde el 01 de julio hasta el 31 de diciembre 2026.\n• Solo el primer jueves de cada mes.\n• 02 de julio.\n• 06 de agosto.\n• 03 de septiembre.\n• 01 de octubre.\n• 05 de noviembre.\n• 03 de diciembre.\nBENEFICIOS\n• 20% de reintegro directo pagando con tarjetas de crédito Sudameris.\nCONDICIONES\n• Tope de compra mensual por cuenta de tarjeta de crédito: Gs. 1.000.000.\n• Aplica a compras realizadas únicamente con tarjetas de crédito MasterCard y Visa de Sudameris Bank S.A.E.C.A, en los\ncomercios más abajo establecidos (ver cuadro más abajo).\n• Promoción válida única y exclusivamente para compras realizadas a través del POS de la Red Infonet.\n• Las bases y condiciones están sujetas a modificaciones de acuerdo con las posibles variaciones del acuerdo con el\ncomercio, por lo que el Banco se reserva el derecho de aplicar dichas modificaciones, sin previo aviso, y el cliente\ndeberá verificar la versión actualizada de las Bases y condiciones antes de realizar la transacción.\n• Los reclamos se tomarán como válidos sobre el último documento actualizado y debe ser el documento vigente\ndurante el día de la compra reclamada.\nEXCLUSIONES\n• Se excluyen del beneficio las tarjetas prepagas, de débito, Bancard Check, Gourmet Card, Móvil Card, Productivas y\nEmpresariales.\n• No aplica a compras a través de otras procesadoras (Dinelco, Cabal, etc).\nhttps://www.sudameris.com.py/beneficios",
+      "tables": []
+    },
+    {
+      "number": 2,
+      "text": "2\nECOP - ESTACIONES DE SERVICIO CCU\nESTACIONES DE SERVICIOS FISICAS",
+      "tables": [
+        [
+          [
+            "",
+            "COMERCIO",
+            "",
+            "",
+            "DIRECCION",
+            "",
+            "",
+            "LOCALIDAD",
+            ""
+          ],
+          [
+            "ECOP OBLIGADO",
+            null,
+            null,
+            "AV. GASPAR R. DE FRANCIA C/ AV. OSWALDO TISCHLER",
+            null,
+            null,
+            "OBLIGADO",
+            null,
+            null
+          ],
+          [
+            "ECOP CENTRAL COOP.COL.UNIDAS",
+            null,
+            null,
+            "RUTA 6TA – KM. 212 AVDA. ALBANO BIRNFELD",
+            null,
+            null,
+            "SANTA RITA",
+            null,
+            null
+          ]
+        ]
+      ]
+    }
+  ]
+}

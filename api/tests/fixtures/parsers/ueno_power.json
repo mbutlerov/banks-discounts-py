@@ -1,0 +1,71 @@
+{
+  "source_url": "https://www.ueno.com.py/wp-content/uploads/2026/09/Beneficio-de-Reintegro-ueno-POWER-Gastronomia-_-OCT-2026v1.pdf",
+  "pages": [
+    {
+      "number": 1,
+      "text": "Vigencia: Desde el 01 de octubre hasta el 31 de octubre del 2026. Condiciones:",
+      "tables": [
+        [
+          [
+            "Niveles",
+            "Días",
+            "Marca",
+            "Procesadora",
+            "Tope de\ncompra\nsemanal",
+            "Tope de\ncompra\nmensual",
+            "Beneficio\nBase de\nreintegro",
+            "Beneficio\nde reintegro\nadicional"
+          ],
+          [
+            "1, 2, 3,\n4, 5 y\nBlack",
+            "LUNES:\n05,12,19, 26",
+            "ARK CAFÉ",
+            "upay",
+            "Gs. 150.000",
+            "Gs. 750.000",
+            "10%",
+            "40%"
+          ],
+          [
+            null,
+            null,
+            "CANELA CAFETERÍA",
+            "upay",
+            null,
+            null,
+            null,
+            null
+          ]
+        ]
+      ]
+    },
+    {
+      "number": 2,
+      "text": "",
+      "tables": [
+        [
+          [
+            "Niveles",
+            "Días",
+            "Marca",
+            "Procesadora",
+            "Tope de\ncompra\nsemanal",
+            "Tope de\ncompra\nmensual",
+            "Beneficio\nBase de\nreintegro",
+            "Beneficio\nde reintegro\nadicional"
+          ],
+          [
+            "1, 2, 3,\n4, 5 y\nBlack",
+            "MARTES:\n6, 13, 20, 27",
+            "BILLY SMASH",
+            "upay",
+            "Gs. 150.000",
+            "Gs. 750.000",
+            "10%",
+            "40%"
+          ]
+        ]
+      ]
+    }
+  ]
+}

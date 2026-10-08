@@ -1,0 +1,65 @@
+{
+  "source_url": "https://www.ueno.com.py/wp-content/uploads/2026/09/Beneficio-de-Reintegro-COMBUSTIBLES-_-OCT-2026v1.pdf",
+  "pages": [
+    {
+      "number": 1,
+      "text": "Vigencia: Desde el 01 de octubre hasta el 31 de octubre del 2026. Condiciones:",
+      "tables": [
+        [
+          [
+            "PROMOCIÓN VÁLIDA SOLO PARA LAS SIGUIENTES ESTACIONES DE SERVICIO:",
+            null,
+            null
+          ],
+          [
+            "con POS de la Red Upay y/o Red Infonet:",
+            null,
+            "Fecha de Vigencia"
+          ],
+          [
+            "1",
+            "A través de la APP PETROBRAS PREMMIA detallados en el ANEXO I",
+            "1 al 31 de Octubre."
+          ],
+          [
+            "2",
+            "COPETROL detallados en el ANEXO II",
+            "1 al 31 de Octubre."
+          ]
+        ]
+      ]
+    },
+    {
+      "number": 2,
+      "text": "",
+      "tables": [
+        [
+          [
+            "TARJETA DE CRÉDITO",
+            null,
+            null,
+            null
+          ],
+          [
+            "NIVEL DEL\nCLIENTE",
+            "% DE REINTEGRO",
+            "TOPE DE COMPRA\nSEMANAL(Gs.)",
+            "REINTEGRO MÁXIMO\nSEMANAL (Gs.)"
+          ],
+          [
+            "nivel 5",
+            "40%",
+            "Gs. 150.000",
+            "Gs. 60.000"
+          ],
+          [
+            "nivel 4",
+            "30%",
+            "Gs. 125.000",
+            "Gs. 37.500"
+          ]
+        ]
+      ]
+    }
+  ]
+}

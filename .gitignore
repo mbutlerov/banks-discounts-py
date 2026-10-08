@@ -8,3 +8,37 @@ __pycache__/
 dist/
 build/
 
+# Local credentials, backups, snapshots and Python tools
+.local/
+.venv/
+.pytest_cache/
+api/data/
+api/environments/private.env
+api/environments/*.local.env
+
+# Deployment credentials and server backups
+/deploy.env
+/neon.env
+/backups/
+
+# Per-machine tooling and an unused legacy model example
+.claude/
+api/app/database/models.example.py
+
+# Local environment overrides and SSH keys
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.ppk
+
+# Local planning and investigation notes; operational docs live under api/docs
+/ANALISIS_Y_PLAN.md
+/FUENTES_Y_ESTRATEGIA.md
+/IMPLEMENTACION.md
+/PLAN_DE_COMMITS.md
+/api/docs/scraping/pending-review-20261005.md
+/api/docs/scraping/gnb-httpx-fallback-20261006.md
+/api/app/database/models/zmodels_readme.md
+

@@ -1,0 +1,130 @@
+{
+  "captured_on": "2026-10-03",
+  "source_url": "https://www.ueno.com.py/wp-content/uploads/2026/09/Beneficio-Reintegro-ENTRETENIMIENTO-_-OCT-2026v1.pdf",
+  "detail_url": "https://www.ueno.com.py/beneficio-byc/oct2026/entretenimiento/",
+  "sha256": "12c3b7c358f62f088c13e11f3a6cea6491c9a967383c4777d371738ce460e928",
+  "pages": [
+    {
+      "number": 1,
+      "text": "Bases y Condiciones\nPromoción Reintegro “Bolsa Entretenimiento”\nVigencia:\n● Desde el 01 de octubre hasta el 31 de octubre del 2026. (A excepción de preventas exclusivas detalladas -si\nhubieren en el Anexo correspondiente, las cuales quedarán habilitadas desde su fecha de inicio específica).\nCondiciones:\n● Promoción válida para: eventos adheridos en el Anexo I en lo que respecta a reintegros y eventos adheridos\nen el Anexo II en lo que respecta a cuotas sin intereses.\nMedios de pago habilitados:\n● Aplica únicamente a transacciones realizadas con tarjetas físicas y con billeteras electrónicas (Apple Pay / Google\nPay) con tarjetas de crédito Mastercard Dúo Clásica, Black o Albirroja, emitidas por ueno bank.\n● Válido para compras realizadas de manera física en los terminales POS o de forma digital en las pasarelas web de\npago (VPOS) integradas a través de la Red Upay.\n● No aplica a pagos realizados mediante código QR, incluyendo los de la app ueno bank.\nBeneficio 1:\nEl beneficio de reintegro se aplicará a cada cliente durante la vigencia de la promoción para eventos detallados en el\nAnexo I, según detalle:\nNIVEL DEL % DE MONTO DE COMPRA REINTEGRO MÁXIMO\nCLIENTE REINTEGRO (Gs.) (Gs.)\nnivel 5 40% Gs. 1.000.000 Gs. 400.000\nnivel 4 30% Gs. 500.000 Gs. 150.000\nnivel 3 25% Gs. 300.000 Gs. 75.000\nnivel 2 15% Gs. 200.000 Gs. 30.000\nnivel 1 10% Gs. 100.000 Gs. 10.000\n● El tope de compra/reintegro estará limitado a cada cliente conforme su nivel, durante la vigencia de la promoción.\n● El porcentaje de reintegro será según el nivel de cliente vigente que tengas al momento de realizar el pago. Si la\ncompra genera un cambio de nivel, el nuevo porcentaje de reintegro aplicará solamente para siguientes pagos.\n● El cliente podrá visualizar su nivel en la App de ueno bank S.A., en la sección de ‘‘Beneficios’’.\nBeneficio 2:\nEl beneficio de cuotas sin intereses se aplicará a cada cliente durante la vigencia de la promoción, según detalle:\n● Hasta 12 cuotas sin intereses a través de la Red Upay para eventos detallados en el Anexo II (No aplicable por\ndefecto, el cliente debe indicar expresamente la forma de pago al momento de realizar la compra).",
+      "tables": [
+        [
+          [
+            "NIVEL DEL\nCLIENTE",
+            "% DE\nREINTEGRO",
+            "MONTO DE COMPRA\n(Gs.)",
+            "REINTEGRO MÁXIMO\n(Gs.)"
+          ],
+          [
+            "nivel 5",
+            "40%",
+            "Gs. 1.000.000",
+            "Gs. 400.000"
+          ],
+          [
+            "nivel 4",
+            "30%",
+            "Gs. 500.000",
+            "Gs. 150.000"
+          ],
+          [
+            "nivel 3",
+            "25%",
+            "Gs. 300.000",
+            "Gs. 75.000"
+          ],
+          [
+            "nivel 2",
+            "15%",
+            "Gs. 200.000",
+            "Gs. 30.000"
+          ],
+          [
+            "nivel 1",
+            "10%",
+            "Gs. 100.000",
+            "Gs. 10.000"
+          ]
+        ]
+      ]
+    },
+    {
+      "number": 3,
+      "text": "Nombre del comercio adherido |  | MEDIOS DE PAGO |  | Vigencia\n |  | POS/VPOS y/o link de pago: |  | \n1 | FLIGHTNEX - VUELOS PANORÁMICOS. | upay |  | 1 al 31 de Octubre\n2 | VIRTUALITY | upay |  | 1 al 31 de Octubre\nNombre del comercio\nadherido |  | MEDIOS DE PAGO |  |  | Vigencia\n |  | POS/VPOS y/o link de pago: |  |  | \n1 | GORILLAZ | upay | Sitio web\nTicketea | Hasta 12 cuotas sin\nintereses | 1 al 31 de\nOctubre\n2 | ED SHEERAN | upay | Sitio web\nTicketea | Hasta 12 cuotas sin\nintereses | 1 al 31 de\nOctubre\n4 | CAMILO (preventa\nexclusiva para clientes\nueno bank desde el 9/06,\nhasta agotar stock) | upay | Sitio web\nTicketea | Hasta 12 cuotas sin\nintereses | 1 al 23 de\nOctubre",
+      "tables": [
+        [
+          [
+            "Nombre del comercio adherido",
+            null,
+            "MEDIOS DE PAGO",
+            null,
+            "Vigencia"
+          ],
+          [
+            null,
+            null,
+            "POS/VPOS y/o link de pago:",
+            null,
+            null
+          ],
+          [
+            "1",
+            "FLIGHTNEX - VUELOS PANORÁMICOS.",
+            "upay",
+            "",
+            "1 al 31 de Octubre"
+          ],
+          [
+            "2",
+            "VIRTUALITY",
+            "upay",
+            "",
+            "1 al 31 de Octubre"
+          ]
+        ],
+        [
+          [
+            "Nombre del comercio\nadherido",
+            null,
+            "MEDIOS DE PAGO",
+            null,
+            "",
+            "Vigencia"
+          ],
+          [
+            null,
+            null,
+            "POS/VPOS y/o link de pago:",
+            null,
+            "",
+            null
+          ],
+          [
+            "1",
+            "GORILLAZ",
+            "upay",
+            "Sitio web\nTicketea",
+            "Hasta 12 cuotas sin\nintereses",
+            "1 al 31 de\nOctubre"
+          ],
+          [
+            "2",
+            "ED SHEERAN",
+            "upay",
+            "Sitio web\nTicketea",
+            "Hasta 12 cuotas sin\nintereses",
+            "1 al 31 de\nOctubre"
+          ],
+          [
+            "4",
+            "CAMILO (preventa\nexclusiva para clientes\nueno bank desde el 9/06,\nhasta agotar stock)",
+            "upay",
+            "Sitio web\nTicketea",
+            "Hasta 12 cuotas sin\nintereses",
+            "1 al 23 de\nOctubre"
+          ]
+        ]
+      ]
+    }
+  ]
+}

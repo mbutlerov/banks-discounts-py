@@ -1,0 +1,14 @@
+[
+  {
+    "@type": "Offer",
+    "name": "Estaciones de Servicio",
+    "description": "20% de reintegro",
+    "offeredBy": {
+      "@type": "BankOrCreditUnion",
+      "name": "Banco Atlas"
+    },
+    "category": "Generales",
+    "validFrom": "2026-05-06",
+    "validThrough": "2026-12-29"
+  }
+]

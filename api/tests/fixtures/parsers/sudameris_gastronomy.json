@@ -1,0 +1,60 @@
+{
+  "source_url": "https://www.sudameris.com.py/storage/app/uploads/public/6ab/eac/909/6abeac9098afc518629989.pdf",
+  "pages": [
+    {
+      "number": 1,
+      "text": "Tope de compra por comercio, por cuenta de tarjeta de crédito.",
+      "tables": []
+    },
+    {
+      "number": 2,
+      "text": "",
+      "tables": [
+        [
+          [
+            "Comercio",
+            "Días",
+            "Beneficio",
+            "Tope compra",
+            "Vigencia"
+          ],
+          [
+            null,
+            null,
+            null,
+            "mensual por",
+            null
+          ],
+          [
+            "",
+            "",
+            "",
+            "comercio",
+            ""
+          ],
+          [
+            "KAISEKI",
+            "LUNES A VIERNES",
+            "20% DE REINTEGRO + 5% PARA BLACK E INFINITE",
+            "GS. 1.000.000",
+            "DESDE EL 03.08.25\nHASTA EL 31.12.26"
+          ],
+          [
+            "PATIO COLONIAL",
+            "JUEVES A DOMINGO",
+            "20% DE REINTEGRO",
+            "GS. 800.000",
+            "DESDE EL 01.01.26\nHASTA EL 02.08.26"
+          ],
+          [
+            "DE LA PEQUE",
+            "JUEVES A SÁBADO",
+            "20% DE REINTEGRO",
+            "GS. 500.000",
+            "DESDE EL 06.08.26\nHASTA EL 26.12.26"
+          ]
+        ]
+      ]
+    }
+  ]
+}

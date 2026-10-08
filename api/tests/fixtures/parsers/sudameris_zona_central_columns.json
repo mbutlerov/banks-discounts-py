@@ -1,0 +1,65 @@
+{
+  "source_url": "https://www.sudameris.com.py/storage/app/media/ByC/bc-zonacentralasuygranasu-030926.pdf",
+  "captured_on": "2026-10-05",
+  "note": "Official legal narrative and selected original pdfplumber table rows; original page numbers and spacer cells retained.",
+  "pages": [
+    {
+      "number": 1,
+      "text": "1\nZONA CENTRAL – ASUNCIÓN Y GRAN ASUNCIÓN\nVIGENCIA\n• Verificar según aplicación de promoción (ver cuadro más abajo).\nBENEFICIO\n• Descuentos en caja según aplicación de promoción (ver cuadro más abajo).\n• Reintegro en extracto, según aplicación de promoción (ver cuadro más abajo).\n• Cuotas sin interés, según aplicación de promoción (ver cuadro más abajo).\nCONDICIONES\n• Tope de compra por cuenta de tarjeta de crédito: según aplicación de promoción (ver cuadro más abajo).\n• Aplica a compras realizadas únicamente con tarjetas de crédito MasterCard y Visa de Sudameris Bank S.A.E.C.A, y\ncompras vía e-commerce según disponibilidad del comercio.\n• Si un comercio tiene sucursales en diferentes ciudades, el tope de compra mensual se aplicará por comercio o marca,\nno por zona. El tope de compra mensual será único para la marca en su conjunto.\n• Aplica a compras realizadas con tarjetas de crédito MasterCard y Visa de Sudameris Bank S.A.E.C.A.\n• Promoción válida única y exclusivamente para compras realizadas vía POS de Bancard (Red Infonet).\n• Las bases y condiciones están sujetas a modificaciones de acuerdo con las posibles variaciones del acuerdo con el\ncomercio, por lo que el Banco se reserva el derecho de aplicar dichas modificaciones, sin previo aviso, y el cliente\ndeberá verificar la versión actualizada de las Bases y condiciones antes de realizar la transacción.\n• Los reclamos se tomarán como válidos sobre el último documento actualizado y debe ser el documento vigente\ndurante el día de la compra reclamada.\nEXCLUSIONES\n• Se excluyen del beneficio las tarjetas prepagas, de débito, Bancard Check, Gourmet Card, Móvil Card, Productivas y\nEmpresariales.\n• No aplica a compras a través de otras procesadoras (Dinelco, Cabal, etc).\n• Se excluyen del beneficio las compras realizadas con plataformas digitales ajenas a cada marca (Pedidos Ya, Monchis,\nGu y/o Pedile a Charly).\nhttps://www.sudameris.com.py/beneficios",
+      "tables": []
+    },
+    {
+      "number": 2,
+      "text": "ZONA CENTRAL - ASUNCIÓN Y  GRAN ASUNCIÓN\nCOMERCIOS",
+      "tables": [
+        [
+          [
+            "Comercio",
+            "Días",
+            "Beneficio",
+            "",
+            "Tope de",
+            "",
+            "Vigencia"
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            "compra",
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            "mensual",
+            null,
+            null
+          ],
+          [
+            "MATERASSI COLCHONES",
+            "Miércoles a sábado",
+            "30% de descuento en caja + 10% de\nreintegro\nHasta 12 Cuotas sin interés",
+            "Gs. 10.000.000\n(Para reintegro)",
+            null,
+            null,
+            "Desde el 04.03.26\nHasta el 01.08.26"
+          ],
+          [
+            "DIANA APODACA",
+            "Miércoles y jueves",
+            "20% de reintegro + 5% Black e Infinite\nHasta 12 cuotas sin interés",
+            "Gs. 1.500.000",
+            null,
+            null,
+            "Desde el 04.03.26\nHasta el 28.02.27"
+          ]
+        ]
+      ]
+    }
+  ]
+}
